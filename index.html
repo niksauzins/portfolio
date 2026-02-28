@@ -50,52 +50,119 @@
   <body
     class="bg-bgDark text-dimText font-sans antialiased selection:bg-accent selection:text-white">
     <!-- Navigation bar -->
-    <nav
-      class="fixed w-full top-0 z-50 py-5 bg-bgDark/90 border-white/5 border-b backdrop-blur-md flex justify-center items-center">
-      <div class="flex items-center space-x-6 md:space-x-10">
-        <a
-          href="#about"
-          class="font-mono text-sm text-lightText transition hover:text-accent"
-          ><span class="text-accent">01. </span>About</a
-        >
-        <a
-          href="#skills"
-          class="font-mono text-sm text-lightText transition hover:text-accent"
-          ><span class="text-accent">02. </span>Skills</a
-        >
-        <a
-          href="#projects"
-          class="font-mono text-sm text-lightText transition hover:text-accent"
-          ><span class="text-accent">03. </span>Work</a
-        >
-        <a
-          href="#timeline"
-          class="font-mono text-sm text-lightText transition hover:text-accent"
-          ><span class="text-accent">04. </span>Timeline</a
-        >
-        <a
-          href="#contact"
-          class="font-mono text-sm text-lightText transition hover:text-accent"
-          ><span class="text-accent">05. </span>Contact</a
-        >
+    <nav class="fixed w-full top-0 z-50">
+      <!-- Mobile Menu Backdrop -->
+      <div
+        id="mobile-backdrop"
+        class="md:hidden fixed inset-0 h-screen bg-bgDark/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+
+      <!-- Top bar container -->
+      <div
+        class="relative z-50 w-full bg-bgDark/95 border-b border-white/5 backdrop-blur-md">
+        <div
+          class="max-w-5xl mx-auto px-6 md:px-12 py-4 md:py-5 flex justify-between md:justify-center items-center">
+          <!-- Mobile Logo -->
+          <img src="assets/img/favicon.png" class="md:hidden max-h-10" />
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-10">
+            <a
+              href="#about"
+              class="font-mono text-sm text-lightText transition hover:text-accent"
+              ><span class="text-accent">01. </span>About</a
+            >
+            <a
+              href="#skills"
+              class="font-mono text-sm text-lightText transition hover:text-accent"
+              ><span class="text-accent">02. </span>Skills</a
+            >
+            <a
+              href="#projects"
+              class="font-mono text-sm text-lightText transition hover:text-accent"
+              ><span class="text-accent">03. </span>Work</a
+            >
+            <a
+              href="#timeline"
+              class="font-mono text-sm text-lightText transition hover:text-accent"
+              ><span class="text-accent">04. </span>Timeline</a
+            >
+            <a
+              href="#contact"
+              class="font-mono text-sm text-lightText transition hover:text-accent"
+              ><span class="text-accent">05. </span>Contact</a
+            >
+          </div>
+
+          <!-- Hamburger Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden text-lightText hover:text-accent focus:outline-none p-1 transition-transform duration-300">
+            <svg
+              class="w-7 h-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                id="menu-icon"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden absolute top-full left-0 w-full bg-bgDark border-b border-white/5 shadow-2xl transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out z-40">
+        <div class="flex flex-col px-6 py-4 space-y-6">
+          <a
+            href="#about"
+            class="mobile-link font-mono text-base text-lightText hover:text-accent"
+            ><span class="text-accent">01. </span>About</a
+          >
+          <a
+            href="#skills"
+            class="mobile-link font-mono text-base text-lightText hover:text-accent"
+            ><span class="text-accent">02. </span>Skills</a
+          >
+          <a
+            href="#projects"
+            class="mobile-link font-mono text-base text-lightText hover:text-accent"
+            ><span class="text-accent">03. </span>Work</a
+          >
+          <a
+            href="#timeline"
+            class="mobile-link font-mono text-base text-lightText hover:text-accent"
+            ><span class="text-accent">04. </span>Timeline</a
+          >
+          <a
+            href="#contact"
+            class="mobile-link font-mono text-base text-lightText hover:text-accent"
+            ><span class="text-accent">05. </span>Contact</a
+          >
+        </div>
       </div>
     </nav>
 
     <!-- Main Content -->
     <main
-      class="max-w-5xl mx-auto px-6 md:px-12 flex flex-col gap-32 pt-32 pb-32">
+      class="max-w-5xl mx-auto px-6 md:px-12 flex flex-col gap-24 md:gap-32 pt-32 pb-32">
       <!-- Hero Section -->
       <section
-        class="min-h-[70vh] flex flex-col justify-center text-center md:text-left items-center md:items-start pt-10">
+        class="min-h-[50vh] flex flex-col justify-center text-center md:text-left items-center md:items-start pt-8 md:pt-10">
         <p class="font-mono text-accent mb-5 tracking-wider">Hi, my name is</p>
         <h1
-          class="text-5xl md:text-7xl text-lightText font-bold mb-4 tracking-tight">
+          class="text-4xl sm:text-5xl md:text-7xl text-lightText font-bold mb-4 tracking-tight">
           Niks Rodžers Auziņš.
         </h1>
-        <h2 class="text-4xl md:text-6xl text-dimText font-bold mb-6">
+        <h2
+          class="text-2xl sm:text-3xl md:text-5xl text-dimText font-bold mb-6">
           I build things for the web.
         </h2>
-        <p class="max-w-xl text-lg leading-relaxed mb-10">
+        <p class="max-w-xl text-md md:text-lg leading-relaxed mb-10">
           I'm a software developer based in Latvia, currently studying
           programming and competing as a
           <span class="text-accent">SkillsLatvia Finalist</span>. I specialize
@@ -129,14 +196,14 @@
       <!-- About Me -->
       <section id="about" class="w-full scroll-mt-28">
         <h2
-          class="flex items-center whitespace-nowrap w-full text-lightText font-bold text-2xl mb-10">
-          <span class="text-accent font-mono text-xl mr-3">01. </span>
+          class="flex items-center whitespace-nowrap w-full text-lightText font-bold text-xl md:text-2xl mb-10">
+          <span class="text-accent font-mono text-lg md:text-xl mr-3">01.</span>
           About Me
           <div class="h-px bg-white/10 w-full max-w-sm ml-4"></div>
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
-          <div class="md:col-span-3 text-lg space-y-4">
+          <div class="md:col-span-3 text-md md:text-lg space-y-4">
             <p>
               Hello! My interest in web development started back when I realized
               I could use code to solve real-world problems.
@@ -190,8 +257,8 @@
       <!-- Skills Section -->
       <section id="skills" class="w-full scroll-mt-28">
         <h2
-          class="flex items-center justify-center w-full text-2xl font-bold text-lightText mb-12">
-          <span class="text-xl text-accent font-mono mr-3">02. </span
+          class="flex items-center justify-center w-full text-xl md:text-2xl font-bold text-lightText mb-12">
+          <span class="text-lg md:text-xl text-accent font-mono mr-3">02. </span
           >Technologies I Work With
         </h2>
         <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -251,14 +318,14 @@
       <!-- Projects -->
       <section id="projects" class="w-full scroll-mt-28">
         <h2
-          class="flex items-center whitespace-nowrap w-full text-lightText font-bold text-2xl mb-10">
-          <span class="text-accent font-mono text-xl mr-3">03. </span>
+          class="flex items-center whitespace-nowrap w-full text-lightText font-bold text-xl md:text-2xl mb-10">
+          <span class="text-accent font-mono text-lg md:text-xl mr-3">03.</span>
           Some Things I've Built
           <div class="h-px bg-white/10 w-full max-w-sm ml-4"></div>
         </h2>
 
         <div
-          class="group overflow-hidden flex flex-col md:flex-row bg-bgCard border border-white/10 rounded-sm hover:border-accent/50 transition-all duration-300">
+          class="group overflow-hidden flex flex-col-reverse md:flex-row bg-bgCard border border-white/10 rounded-sm hover:border-accent/50 transition-all duration-300">
           <div
             class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
             <div class="flex justify-between items-center mb-4">
@@ -285,14 +352,14 @@
                 >Frigoflow</a
               >
             </h3>
-            <p class="text-dimText pb-6 leading-relaxed">
+            <p class="text-sm md:text-md text-dimText pb-6 leading-relaxed">
               A web application designed for efficient refrigerator inventory
               and food management. It helps track what items you have, reducing
               food waste and improving household organization. Completed as the
               <span class="text-lightText">CS50 Final Project</span>.
             </p>
             <ul
-              class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-accent text-sm pt-4 mt-auto border-t border-white/5">
+              class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-accent text-xs md:text-sm pt-4 mt-auto border-t border-white/5">
               <li>Python</li>
               <li>Flask</li>
               <li>SQLite</li>
@@ -300,11 +367,11 @@
             </ul>
           </div>
           <div
-            class="w-full md:w-1/2 relative min-h-[300px] md:min-h-full bg-bgDark overflow-hidden">
+            class="w-full md:w-1/2 relative h-56 sm:h-64 md:h-auto bg-bgDark overflow-hidden order-1 md:order-2">
             <img
               src="assets/img/frigoflow.png"
               alt="Dashboard for Frigoflow"
-              class="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105" />
+              class="w-full h-full object-cover object-top md:object-center transition-all duration-700 group-hover:scale-105" />
           </div>
         </div>
       </section>
@@ -312,8 +379,8 @@
       <!-- Achievements Timeline -->
       <section id="timeline" class="w-full scroll-mt-28">
         <h2
-          class="flex items-center justify-center w-full text-2xl font-bold text-lightText mb-16">
-          <span class="text-xl text-accent font-mono mr-3">04. </span>
+          class="flex items-center justify-center w-full text-xl md:text-2xl font-bold text-lightText mb-10 md:mb-16">
+          <span class="text-lg md:text-xl text-accent font-mono mr-3">04.</span>
           Milestones & Competitions
         </h2>
 
@@ -331,10 +398,10 @@
             <div
               class="w-full md:w-5/12 bg-bgCard border border-white/5 p-6 rounded-lg hover:-translate-y-1 transition-all border-t-2 border-t-accent">
               <p
-                class="font-mono text-accent text-sm mb-2 block tracking-wider">
+                class="font-mono text-accent text-xs md:text-sm mb-2 block tracking-wider">
                 May 8-9, 2025
               </p>
-              <h3 class="text-xl text-lightText font-bold mb-2">
+              <h3 class="text-lg md:text-xl text-lightText font-bold mb-2">
                 SkillsLatvia 2025 Finalist
               </h3>
               <p class="text-sm">
@@ -353,10 +420,10 @@
             <div
               class="w-full md:w-5/12 bg-bgCard border border-white/5 p-6 rounded-lg hover:-translate-y-1 transition-all border-t-2 border-t-accent md:text-right">
               <p
-                class="font-mono text-accent text-sm mb-2 block tracking-wider">
+                class="font-mono text-accent text-xs md:text-sm mb-2 block tracking-wider">
                 October 30-31, 2025
               </p>
-              <h3 class="text-xl text-lightText font-bold mb-2">
+              <h3 class="text-lg md:text-xl text-lightText font-bold mb-2">
                 RVT Web Competition
               </h3>
               <p class="text-sm">
@@ -371,14 +438,14 @@
       <!-- Contact -->
       <section
         id="contact"
-        class="w-full max-w-2xl mx-auto text-center py-20 scroll-mt-28">
+        class="w-full max-w-2xl mx-auto text-center py-0 md:py-20 scroll-mt-28">
         <p class="font-mono text-accent mb-4 tracking-wider">
           05. What's Next?
         </p>
         <h2 class="text-4xl md:text-5xl font-bold text-lightText mb-6">
           Get In Touch
         </h2>
-        <p class="text-lg mb-10 text-dimText leading-relaxed">
+        <p class="text-md md:text-lg mb-10 text-dimText leading-relaxed">
           I'm currently looking for new opportunities to apply my skills and
           grow as a developer. Whether you have a question, an open position, or
           just want to say hi, I'll try my best to get back to you!
@@ -391,7 +458,7 @@
       </section>
     </main>
     <footer
-      class="text-center pb-8 font-mono text-sm text-dimText/50 flex flex-col items-center justify-center">
+      class="text-center pb-4 md:pb-8 font-mono text-sm text-dimText/50 flex flex-col items-center justify-center">
       <a
         href="https://github.com/niksauzins"
         target="_blank"
@@ -399,5 +466,61 @@
         >Built by Niks Rodžers Auziņš</a
       >
     </footer>
+
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const backdrop = document.getElementById('mobile-backdrop');
+      const icon = document.getElementById('menu-icon');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      let isMenuOpen = false;
+
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+          menu.classList.remove(
+            '-translate-y-4',
+            'opacity-0',
+            'pointer-events-none',
+          );
+          menu.classList.add(
+            'translate-y-0',
+            'opacity-100',
+            'pointer-events-auto',
+          );
+
+          backdrop.classList.remove('opacity-0', 'pointer-events-none');
+          backdrop.classList.add('opacity-100', 'pointer-events-auto');
+
+          icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+        } else {
+          menu.classList.remove(
+            'translate-y-0',
+            'opacity-100',
+            'pointer-events-auto',
+          );
+          menu.classList.add(
+            '-translate-y-4',
+            'opacity-0',
+            'pointer-events-none',
+          );
+
+          backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+          backdrop.classList.add('opacity-0', 'pointer-events-none');
+
+          icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        }
+      }
+
+      btn.addEventListener('click', toggleMenu);
+
+      backdrop.addEventListener('click', toggleMenu);
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener('click', toggleMenu);
+      });
+    </script>
   </body>
 </html>
