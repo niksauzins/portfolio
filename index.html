@@ -32,6 +32,10 @@
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
+    <script
+      src="https://kit.fontawesome.com/bfcb13a8fd.js"
+      crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="./assets/style.css" />
     <style>
       ::-webkit-scrollbar {
@@ -45,6 +49,18 @@
         border-radius: 4px;
       }
     </style>
+
+    <script>
+      const savedTheme = localStorage.getItem('theme');
+
+      const systemPrefersLight = window.matchMedia(
+        '(prefers-color-scheme: light)',
+      ).matches;
+
+      if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+        document.documentElement.classList.add('light-theme');
+      }
+    </script>
   </head>
 
   <body
@@ -58,7 +74,7 @@
 
       <!-- Top bar container -->
       <div
-        class="relative z-50 w-full bg-bgDark/95 border-b border-white/5 backdrop-blur-md">
+        class="relative z-50 w-full bg-bgDark/95 border-b border-divider backdrop-blur-md">
         <div
           class="max-w-5xl mx-auto px-6 md:px-12 py-4 md:py-5 flex justify-between md:justify-center items-center">
           <!-- Mobile Logo -->
@@ -94,6 +110,10 @@
               class="font-mono text-sm text-lightText transition hover:text-accent"
               ><span class="text-accent">05. </span>Contact</a
             >
+            <button
+              class="theme-toggle-btn p-2 text-dimText hover:text-accent transition-colors cursor-pointer">
+              <i class="theme-icon fa-regular fa-sun"></i>
+            </button>
           </div>
 
           <!-- Hamburger Button -->
@@ -119,7 +139,7 @@
       <!-- Mobile Dropdown Menu -->
       <div
         id="mobile-menu"
-        class="md:hidden absolute top-full left-0 w-full bg-bgDark border-b border-white/5 shadow-2xl transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out z-40">
+        class="md:hidden absolute top-full left-0 w-full bg-bgDark border-b border-divider shadow-2xl transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out z-40">
         <div class="flex flex-col px-6 py-4 space-y-6">
           <a
             href="#about"
@@ -146,6 +166,10 @@
             class="mobile-link font-mono text-base text-lightText hover:text-accent"
             ><span class="text-accent">05. </span>Contact</a
           >
+          <button
+            class="theme-toggle-btn font-mono p-2 text-dimText hover:text-accent transition-colors cursor-pointer text-left w-full">
+            <i class="theme-icon fa-regular fa-sun"></i> Switch theme
+          </button>
         </div>
       </div>
     </nav>
@@ -171,9 +195,9 @@
           </h2>
           <p class="max-w-xl text-md md:text-lg leading-relaxed mb-10">
             I'm a software developer based in Latvia, currently studying
-            programming and competing as a
+            programming and a proud
             <span
-              class="text-[#f5c842] text-shadow-[0px_0px_12px_rgb(245_200_66)]"
+              class="text-gold text-shadow-[0px_0px_12px_var(--glow-color)] font-bold"
               >SkillsLatvia 2026 Gold Medalist</span
             >. I specialize in building robust, accessible, and high-performance
             digital experiences.
@@ -206,7 +230,7 @@
         <div class="shrink-0 w-48 md:w-56 lg:w-64">
           <div class="relative">
             <div
-              class="absolute inset-0 translate-x-3 translate-y-3 rounded border border-[#f5c842]/50"></div>
+              class="absolute inset-0 translate-x-3 translate-y-3 rounded border border-gold/50 outline-gold/50 outline-1"></div>
             <img
               src="assets/img/headshot.webp"
               alt="Niks Rodžers Auziņš holding gold medal"
@@ -221,7 +245,7 @@
           class="flex items-center whitespace-nowrap w-full text-lightText font-bold text-xl md:text-2xl mb-10">
           <span class="text-accent font-mono text-lg md:text-xl mr-3">01.</span>
           About Me
-          <div class="h-px bg-white/10 w-full max-w-sm ml-4"></div>
+          <div class="h-px bg-divider w-full max-w-sm ml-4"></div>
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
@@ -245,9 +269,9 @@
             </p>
           </div>
           <div
-            class="md:col-span-2 bg-bgCard rounded-lg p-6 border border-white/5 transition-all duration-300 hover:-translate-y-2">
+            class="md:col-span-2 bg-bgCard rounded-lg shadow-sm hover:shadow-md p-6 border border-divider transition-all duration-300 hover:-translate-y-2 hover:border-accent/20">
             <h3
-              class="font-mono text-accent mb-4 border-b border-white/10 pb-2 tracking-wider">
+              class="font-mono text-accent mb-4 border-b border-divider pb-2 tracking-wider">
               Education History
             </h3>
             <div class="mb-4">
@@ -290,23 +314,23 @@
             </h3>
             <div class="flex flex-wrap gap-3">
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >HTML/CSS</span
               >
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >JavaScript</span
               >
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >PHP</span
               >
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >SQL</span
               >
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >Python</span
               >
             </div>
@@ -317,19 +341,19 @@
             </h3>
             <div class="flex flex-wrap gap-3">
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >Laravel</span
               >
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >TailwindCSS</span
               >
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >Flask</span
               >
               <span
-                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent"
+                class="px-4 py-2 bg-bgCard text-sm font-mono rounded border border-lightText/5 text-lightText transition hover:border-accent hover:text-accent shadow-sm"
                 >Git/GitHub</span
               >
             </div>
@@ -343,13 +367,13 @@
           class="flex items-center whitespace-nowrap w-full text-lightText font-bold text-xl md:text-2xl mb-10">
           <span class="text-accent font-mono text-lg md:text-xl mr-3">03.</span>
           Some Things I've Built
-          <div class="h-px bg-white/10 w-full max-w-sm ml-4"></div>
+          <div class="h-px bg-divider w-full max-w-sm ml-4"></div>
         </h2>
 
         <div
-          class="group overflow-hidden flex flex-col-reverse md:flex-row bg-bgCard border border-white/10 rounded-sm hover:border-accent/50 transition-all duration-300">
+          class="group overflow-hidden flex flex-col-reverse md:flex-row bg-bgCard border border-divider rounded-sm hover:border-accent/50 transition-all duration-300 shadow-sm hover:shadow-md">
           <div
-            class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
+            class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-divider">
             <div class="flex justify-between items-center mb-4">
               <p class="font-mono text-accent text-sm tracking-wider">
                 Featured Project
@@ -384,7 +408,7 @@
               <span class="text-lightText">CS50 Final Project</span>.
             </p>
             <ul
-              class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-accent text-xs md:text-sm pt-4 mt-auto border-t border-white/5">
+              class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-accent text-xs md:text-sm pt-4 mt-auto border-t border-divider">
               <li>Python</li>
               <li>Flask</li>
               <li>SQLite</li>
@@ -414,7 +438,7 @@
         <div class="relative max-w-3xl mx-auto">
           <!-- Vertical Line -->
           <div
-            class="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-white/10 hidden md:block"></div>
+            class="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-divider hidden md:block"></div>
 
           <!-- Item 1: SkillsLatvia -->
           <div
@@ -423,7 +447,7 @@
             <div
               class="z-20 w-3 h-3 rounded-full bg-accent border-2 border-bgDark hidden md:block relative"></div>
             <div
-              class="w-full md:w-5/12 bg-bgCard border border-white/5 p-6 rounded-lg hover:-translate-y-1 transition-all border-t-2 border-t-accent">
+              class="w-full md:w-5/12 bg-bgCard border border-divider p-6 rounded-lg hover:-translate-y-1 transition-all border-t-2 border-t-accent shadow-sm hover:shadow-md">
               <p
                 class="font-mono text-accent text-xs md:text-sm mb-2 block tracking-wider">
                 May 7-8, 2026
@@ -431,8 +455,7 @@
               <h3 class="text-lg md:text-xl text-lightText font-bold mb-2">
                 SkillsLatvia 2026 -
                 <br />
-                <span
-                  class="text-[#f5c842] text-shadow-[0px_0px_10px_rgb(245_200_66/0.7)]"
+                <span class="text-gold text-shadow-[0_0_10px_var(--glow-color)]"
                   >Gold Medalist</span
                 >
               </h3>
@@ -442,7 +465,7 @@
                 Latvia.
               </p>
               <div
-                class="mt-4 rounded overflow-hidden border border-white/10 h-40">
+                class="mt-4 rounded overflow-hidden border border-divider h-40">
                 <img
                   src="assets/img/skillslatvia-2026.webp"
                   alt="SkillsLatvia 2026 competition"
@@ -458,7 +481,7 @@
             <div
               class="z-20 w-3 h-3 rounded-full bg-accent border-2 border-bgDark hidden md:block relative"></div>
             <div
-              class="w-full md:w-5/12 bg-bgCard border border-white/5 p-6 rounded-lg hover:-translate-y-1 transition-all border-t-2 border-t-accent md:text-right">
+              class="w-full md:w-5/12 bg-bgCard border border-divider p-6 rounded-lg hover:-translate-y-1 transition-all border-t-2 border-t-accent md:text-right shadow-sm hover:shadow-md">
               <p
                 class="font-mono text-accent text-xs md:text-sm mb-2 block tracking-wider">
                 October 30-31, 2025
@@ -560,6 +583,45 @@
 
       mobileLinks.forEach((link) => {
         link.addEventListener('click', toggleMenu);
+      });
+
+      // Theme switch
+      document.addEventListener('DOMContentLoaded', () => {
+        const htmlElement = document.documentElement;
+        const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+        const themeIcons = document.querySelectorAll('.theme-icon');
+
+        // Set icons on page load
+        if (htmlElement.classList.contains('light-theme')) {
+          themeIcons.forEach((icon) => {
+            icon.classList.replace('fa-sun', 'fa-moon');
+          });
+        }
+
+        // Add event listener for each button
+        toggleBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            htmlElement.classList.toggle('light-theme');
+
+            const isLightMode = htmlElement.classList.contains('light-theme');
+
+            // Save to localStorage
+            if (isLightMode) {
+              localStorage.setItem('theme', 'light');
+            } else {
+              localStorage.setItem('theme', 'dark');
+            }
+
+            // Update icons
+            themeIcons.forEach((icon) => {
+              if (isLightMode) {
+                icon.classList.replace('fa-sun', 'fa-moon');
+              } else {
+                icon.classList.replace('fa-moon', 'fa-sun');
+              }
+            });
+          });
+        });
       });
     </script>
   </body>
